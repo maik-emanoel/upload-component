@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Componente de Upload</title>
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="upload">
+        <input type="file" name="file" id="file-input" />
+        <label for="file-input">
+          <svg>
+            <rect x="0" y="0" rx="10" ry="10"></rect>
+          </svg>
+
+          <img
+            src="./assets/cloud-arrow-up.svg"
+            alt="Ícone de nuvem com uma seta para cima"
+          />
+          <h1>Importe seus arquivos</h1>
+          <p>Arraste ou clique para fazer upload</p>
+        </label>
+      </div>
+
+      <div class="container">
+        <div class="box">
+          <img src="./assets/iconBlue.svg" alt="" class="icon" />
+
+          <div class="info">
+            <div class="top">
+              <h2 class="name">rocketseat.pdf</h2>
+              <img
+                src="./assets/cancel-icon.svg"
+                alt="Ícone de excluir a box correspondente"
+                class="removeBoxBtn"
+              />
+            </div>
+
+            <p>
+              <span class="loaded">20Mb / </span>
+              <span class="total">56Mb</span>
+            </p>
+
+            <div class="bottom">
+              <div class="progress-bar">
+                <div class="bar"></div>
+              </div>
+
+              <span class="porcentage">48%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
