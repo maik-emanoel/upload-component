@@ -179,6 +179,10 @@ label svg rect {
     color: var(--porcentage-color);
 }
 
+.porcentage.upload-completed {
+    --porcentage-color: #4E884D;
+}
+
 .description {
     text-align: center;
     color: var(--span-color);
