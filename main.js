@@ -1,11 +1,12 @@
 const fileInput = document.querySelector('#file-input')
 const container = document.querySelector('.container')
 
+const description = document.createElement('p')
+
 fileInput.addEventListener('change', () => {
     const file = fileInput.files[0];
     let fileName = file.name
     let fileSize = parseFloat((file.size / (1024 * 1024))).toFixed(2)
-    let fileType = file.type
 
     const newBox = document.createElement('div')
     newBox.classList.add('box')
@@ -24,8 +25,8 @@ fileInput.addEventListener('change', () => {
         </div>
 
         <p>
-            <span class="loaded">20Mb / </span>
-            <span class="total">${fileSize}Mb</span>
+            <span class="loaded"></span>
+            <span class="total">${fileSize}MB</span>
         </p>
 
         <div class="bottom">
@@ -39,6 +40,7 @@ fileInput.addEventListener('change', () => {
     `
 
     showProgress(newBox, file.size)
+    removeDescription()
 })
 
 function showProgress(newBox, fileSize) {
@@ -84,5 +86,23 @@ function removeBox(event) {
     if(event.target.classList.contains('removeBoxBtn')) {
         const box = event.target.closest('.box')
         container.removeChild(box)
+    }
+
+    addDescriptionIfContainerIsEmpty()
+}
+
+function addDescriptionIfContainerIsEmpty() {
+    if(container.children.length === 0) {
+        description.classList.add('description')
+        description.innerHTML = `
+        Nenhum arquivo foi importado no momento. Por favor, selecione um arquivo.
+        `
+        container.appendChild(description)
+    }
+}
+
+function removeDescription() {
+    if(container.contains(description)) {
+        container.removeChild(description)
     }
 }
