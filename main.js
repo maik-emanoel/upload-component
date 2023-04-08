@@ -18,9 +18,10 @@ fileInput.addEventListener('change', () => {
         <div class="top">
             <h2 class="name">${fileName}</h2>
             <img   
-                src="./assets/cancel-icon.svg" 
-                alt="Ícone de excluir a box correspondente"
+                src="./assets/cancel-icon.svg"
+                alt="Ícone de excluir o arquivo correspondente"
                 class="removeBoxBtn"
+                title="Remover arquivo"
             >
         </div>
 
@@ -86,10 +87,12 @@ container.addEventListener('click', removeBox)
 function removeBox(event) {
     if(event.target.classList.contains('removeBoxBtn')) {
         const box = event.target.closest('.box')
-        container.removeChild(box)
+        box.classList.add('box-leave')
+        setTimeout(() => {
+          container.removeChild(box);
+          addDescriptionIfContainerIsEmpty()
+        }, 500)
     }
-
-    addDescriptionIfContainerIsEmpty()
 }
 
 function addDescriptionIfContainerIsEmpty() {

@@ -190,3 +190,18 @@ label svg rect {
     width: 80%;
     margin: auto;
 }
+
+.box-leave {
+    animation: leave .5s forwards;
+}
+
+@keyframes leave {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(2rem);
+    }
+}
