@@ -68,6 +68,7 @@ function showProgress(newBox, fileSize) {
           loaded = total
           icon.src = './assets/iconGreen.svg'
           progressBar.classList.add('upload-completed')
+          porcentageSpan.classList.add('upload-completed')
 
           clearInterval(updateValues)
         }
