@@ -126,7 +126,7 @@ label svg rect {
     color: var(--name-color);
 }
 
-.top .removeBox {
+.top .removeBoxBtn {
     cursor: pointer;
 }
 
@@ -159,11 +159,10 @@ label svg rect {
 
 .bar {
     height: .8rem;
+    width: 48%;
     background: linear-gradient(90deg, rgba(58, 97, 237, 0.52) 0%, #7C3AED 100%);
     position: absolute;
     border-radius: 999px;
-
-    animation: progress 2s forwards cubic-bezier(0.800, 0.400, 0.495, 0.135);
 }
 
 .bar.upload-completed {
@@ -180,11 +179,10 @@ label svg rect {
     color: var(--porcentage-color);
 }
 
-/* @keyframes progress {
-    from {
-        width: 0%;
-    }
-    to {
-        width: 100%;
-    }
-} */
+.description {
+    text-align: center;
+    color: var(--span-color);
+    font-size: 1.4rem;
+    width: 80%;
+    margin: auto;
+}
