@@ -8,6 +8,8 @@ fileInput.addEventListener('change', () => {
     let fileName = file.name
     let fileSize = parseFloat((file.size / (1024 * 1024))).toFixed(2)
 
+    let fileNameFormatted = formateFileName(fileName)
+
     const newBox = document.createElement('div')
     newBox.classList.add('box')
 
@@ -16,7 +18,7 @@ fileInput.addEventListener('change', () => {
 
     <div class="info">
         <div class="top">
-            <h2 class="name">${fileName}</h2>
+            <h2 class="name">${fileNameFormatted}</h2>
             <img   
                 src="./assets/cancel-icon.svg"
                 alt="Ícone de excluir o arquivo correspondente"
@@ -109,4 +111,15 @@ function removeDescription() {
     if(container.contains(description)) {
         container.removeChild(description)
     }
+}
+
+const limit = 34
+
+function formateFileName(fileName) {
+    const aboveLimit = fileName.length > limit
+    const dotsOrEmpty = aboveLimit ? '...' : ''
+
+    const fileNameFormatted = fileName.substring(0, limit) + dotsOrEmpty
+
+    return fileNameFormatted
 }
