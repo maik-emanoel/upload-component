@@ -123,3 +123,14 @@ function formateFileName(fileName) {
 
     return fileNameFormatted
 }
+
+const toggleTheme = document.querySelector('.toggle')
+
+toggleTheme.addEventListener('click', toggleThemes)
+function toggleThemes() {
+    const body = document.querySelector('body')
+    const ball = document.querySelector('.ball')
+
+    body.classList.toggle('dark')
+    ball.classList.toggle('dark')
+}
