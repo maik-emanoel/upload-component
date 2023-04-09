@@ -32,6 +32,8 @@ body {
     display: grid;
     place-items: center;
     background: var(--body-bg-color);
+
+    transition: all .3s ease-in-out;
 }
 
 body.dark {
