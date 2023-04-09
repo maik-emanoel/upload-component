@@ -16,6 +16,8 @@
     --body-bg-color: #FBFAFF;
     --upload-bg-color: #F3F0FF;
     --porcentage-color: #9892A6;
+    --box-shadow-color: #EAE2FD;
+    --ball-bg-color: #FFFFFF;
 
     font-size: 62.5%;
     font-family: 'Inter', sans-serif;
@@ -30,6 +32,26 @@ body {
     display: grid;
     place-items: center;
     background: var(--body-bg-color);
+}
+
+body.dark {
+    --body-bg-color: #292738;
+    --box-bg-color: #363447;
+    --box-shadow-color: #00000040;
+    --name-color: #ffffffda;
+    --span-color: #b4b4b4e2;
+    --upload-bg-color: #363447;
+    --label-p-color: #d8d8d8e6;
+    --border-color: #989898e2;
+    --ball-bg-color: #BDCDD6;
+}
+
+body.dark label:hover {
+    --upload-bg-color: #3d3b50;
+}
+
+body.dark .porcentage.upload-completed {
+    --porcentage-color: #55c853;
 }
 
 #file-input {
@@ -109,6 +131,8 @@ label svg rect {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+
+    margin-bottom: 4.8rem;
 }
 
 .box {
@@ -116,8 +140,9 @@ label svg rect {
     gap: 1.2rem;
 
     padding: .8rem;
+    border-radius: .8rem;
     background: var(--box-bg-color);
-    box-shadow: .0rem .4rem 1.6rem #EAE2FD;
+    box-shadow: .0rem .4rem 1.6rem var(--box-shadow-color);
 }
 
 .info {
@@ -204,6 +229,52 @@ label svg rect {
 .box-leave {
     animation: leave .5s forwards;
 }
+
+.toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    border-radius: 5rem;
+  
+    width: 7rem;
+    height: 3rem;
+    background: var(--upload-bg-color);
+  
+    position: relative;
+    cursor: pointer;
+
+    margin: 0 0 0 auto;
+  }
+  
+  .toggle img:nth-child(1) {
+    position: absolute;
+    left: .7rem;
+    width: 2rem;
+  }
+  
+  .toggle img:nth-child(2) {
+    position: absolute;
+    right: .7rem;
+    width: 2rem;
+  }
+  
+  .toggle .ball {
+    width: 2rem;
+    height: 2rem;
+  
+    position: absolute;
+    left: .7rem;
+  
+    background: var(--ball-bg-color);
+    border-radius: 50%;
+  
+    transition: .4s ease-in-out;
+  }
+
+  .toggle .ball.dark {
+    left: 4.3rem;
+  }
 
 @keyframes leave {
     from {
