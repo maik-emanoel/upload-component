@@ -142,9 +142,16 @@ label svg rect {
     gap: 1.2rem;
 
     padding: .8rem;
+    user-select: none;
     border-radius: .8rem;
     background: var(--box-bg-color);
+    transition: all .3s ease-in-out;
     box-shadow: .0rem .4rem 1.6rem var(--box-shadow-color);
+}
+
+.box:hover {
+    scale: 1.05;
+    box-shadow: none;
 }
 
 .info {
@@ -295,5 +302,15 @@ label svg rect {
     }
     to {
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 425px) {
+    :root {
+        font-size: 50%;
+    }
+
+    #app {
+        padding-inline: 2rem;
     }
 }
