@@ -89,13 +89,10 @@ label:hover {
     --upload-bg-color: #e4defb;
 }
 
-label:hover img{
-    animation: up-and-down .4s infinite alternate;
-}
-
 label img {
     width: 4.8rem;
     margin-bottom: 1.2rem;
+    animation: up-and-down .4s infinite alternate;
 }
 
 label h1 {
