@@ -3,7 +3,7 @@ const container = document.querySelector('.container')
 
 const description = document.createElement('p')
 
-fileInput.addEventListener('change', () => {
+fileInput.addEventListener('change', function createNewBox() {
     const file = fileInput.files[0];
     let fileName = file.name
     let fileSize = parseFloat((file.size / (1024 * 1024))).toFixed(2)
@@ -12,6 +12,7 @@ fileInput.addEventListener('change', () => {
 
     const newBox = document.createElement('div')
     newBox.classList.add('box')
+    newBox.setAttribute('draggable', true)
 
     newBox.innerHTML = `
     <img src="./assets/iconBlue.svg" alt="" class="icon">
@@ -43,6 +44,7 @@ fileInput.addEventListener('change', () => {
     `
 
     showProgress(newBox, file.size)
+    turnBoxDraggable(newBox)
     removeDescription()
 })
 
@@ -83,6 +85,7 @@ function showProgress(newBox, fileSize) {
       }, intervalTime)
 
     container.appendChild(newBox)
+    return newBox
 }
 
 container.addEventListener('click', removeBox)
@@ -133,4 +136,25 @@ function toggleThemes() {
 
     body.classList.toggle('dark')
     ball.classList.toggle('dark')
+}
+
+let boxBeingDragged = null
+
+function turnBoxDraggable(newbox) {
+    newbox.addEventListener('dragstart', () => {
+        boxBeingDragged = newbox
+    })
+
+    newbox.addEventListener('dragend', () => {
+        boxBeingDragged = null
+    })
+
+    container.addEventListener('dragover', (e) => {
+        e.preventDefault()
+    })
+
+    container.addEventListener('drop', (e) => {
+        e.preventDefault()
+        container.appendChild(boxBeingDragged)
+    })
 }
