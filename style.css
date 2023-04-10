@@ -138,6 +138,7 @@ label svg rect {
     display: flex;
     gap: 1.2rem;
 
+    cursor: grab;
     padding: .8rem;
     user-select: none;
     border-radius: .8rem;
