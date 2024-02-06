@@ -148,7 +148,6 @@ label svg rect {
 }
 
 .box:hover {
-    scale: 1.05;
     box-shadow: none;
 }
 
